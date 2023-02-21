@@ -18,12 +18,12 @@ app.use((req, res, next) => {
   
 
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://simple-chat-client.vercel.app');
+  res.setHeader('Access-Control-Allow-Origin', 'https://simple-chat-alpha.vercel.app/');
   next();
 });
 
 app.use(cors({
-    origin: 'https://simple-chat-client.vercel.app',
+    origin: 'https://simple-chat-alpha.vercel.app/',
     methods: ['GET', 'POST']
   }));
 
@@ -34,7 +34,7 @@ const server = http.createServer(app)
 
 const io = new Server(server, {
     cors: {
-      origin: 'https://simple-chat-client.vercel.app',
+      origin: 'https://simple-chat-alpha.vercel.app/',
       methods: ['GET', 'POST'],
       allowedHeaders: ['my-custom-header'],
       credentials: true,
