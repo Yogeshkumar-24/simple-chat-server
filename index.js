@@ -8,36 +8,14 @@ import dotenv from 'dotenv'
 const port = process.env.PORT || 8800;
 
 dotenv.config()
-app.options('*', cors());
-
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    next();
-  });
-  
-
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://simple-chat-alpha.vercel.app/');
-  next();
-});
-
-app.use(cors({
-    origin: 'https://simple-chat-alpha.vercel.app/',
-    methods: ['GET', 'POST']
-  }));
-
-
-
+app.use( cors());
 
 const server = http.createServer(app)
 
 const io = new Server(server, {
     cors: {
       origin: 'https://simple-chat-alpha.vercel.app/',
-      methods: ['GET', 'POST'],
-      allowedHeaders: ['my-custom-header'],
-      credentials: true,
+      methods: ['GET', 'POST']
     },
   });
 
